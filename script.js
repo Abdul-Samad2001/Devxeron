@@ -1,4 +1,4 @@
-<script>
+
     // 1. Hide Loader
     window.addEventListener("load", () => {
         const loader = document.getElementById("loader");
@@ -42,4 +42,3 @@
             }, 500);
         });
     });
-</script>
