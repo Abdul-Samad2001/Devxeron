@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devxeron | SQA & SQL Excellence</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper CSS for Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,7 +18,7 @@
     <h2 class="loader-text">DEVXERON</h2>
 </div>
 
-<!-- ADVANCED PROGRESS SCROLL BUTTON -->
+<!-- BACK TO TOP BUTTON -->
 <div id="progress-wrap">
     <svg class="progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102">
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
@@ -26,21 +28,25 @@
 
 <!-- NAVIGATION -->
 <nav class="navbar">
-    <div class="logo">DEVXERON<span>.</span></div>
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+        <a href="#home" class="logo-wrapper">
+            <img src="Images/New_Combined_Logo.svg" alt="Devxeron Logo" class="nav-logo-combined">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 </nav>
 
 <!-- HERO SECTION -->
 <header id="home" class="hero">
     <div class="hero-content">
-        <!-- It might look something like this now -->
-        <h1 class="luminating-text">Precision Engineering. Bug-Free Reality.</h1>
-        <p>Advanced SQA, SQL Optimization, and Java Development Solutions.</p>
+        <h1 class="luminating-text">Precision Engineering.<br>Bug-Free Reality.</h1>
+        <p class="hero-description">Advanced SQA, SQL Optimization, and Java Development Solutions.</p>
         <div class="hero-btns">
             <a href="#services" class="btn-primary">Our Services</a>
             <a href="#contact" class="btn-secondary">Let's Talk</a>
@@ -50,33 +56,58 @@
 
 <!-- ABOUT SECTION -->
 <section id="about" class="section">
-    <div class="container">
+    <div class="container text-center">
         <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>I am a Software Quality Assurance Engineer and SQL Specialist focused on building robust, scalable digital infrastructures. Through <strong>Devxeron</strong>, I bridge the gap between complex backend logic and seamless user experiences.</p>
+        <p class="section-text">I am a Software Quality Assurance Engineer and SQL Specialist focused on building robust infrastructures through <strong>Devxeron</strong>.</p>
+    </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio" class="section">
+    <div class="container">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Devxeron Brand</h3>
+                <p>Automated testing pipelines and database optimization architectures.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>SQL Hero Project</h3>
+                <p>Performance tuning for large-scale beginner-to-pro datasets.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- SERVICES SECTION (Slider Format) -->
 <section id="services" class="section alt-bg">
     <div class="container">
         <h2 class="section-title">Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>SQA Automation</h3>
-                <p>End-to-end testing frameworks using Selenium and Java to ensure zero-defect deployments.</p>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <h3>SQA Automation</h3>
+                        <p>Selenium & Java frameworks built for stability.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <h3>SQL Optimization</h3>
+                        <p>Database tuning & high-performance architecture.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <h3>Consulting</h3>
+                        <p>Professional quality control pipelines and strategies.</p>
+                    </div>
+                </div>
             </div>
-            <div class="service-card highlight">
-                <h3>SQL Optimization</h3>
-                <p>Deep-dive database tuning and architecture to handle high-concurrency data loads.</p>
-            </div>
-            <div class="service-card">
-                <h3>Technical Consulting</h3>
-                <p>Strategic guidance on software architecture and quality control pipelines.</p>
-            </div>
+            <!-- Slider Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </section>
@@ -85,11 +116,12 @@
 <section id="contact" class="section">
     <div class="container text-center">
         <h2 class="section-title">Contact Me</h2>
-        <p>Ready to optimize your project?</p>
         <a href="mailto:abdulsamad@devxeron.com" class="contact-link">abdulsamad@devxeron.com</a>
     </div>
 </section>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

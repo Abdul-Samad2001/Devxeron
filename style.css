@@ -1,4 +1,4 @@
-/* --- VARIABLES --- */
+/* --- 1. CORE & VARIABLES --- */
 :root {
     --bg-dark: #0f172a;
     --bg-alt: #1e293b;
@@ -8,145 +8,108 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- RESET & CORE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents awkward side-scrolling on mobile */
+    overflow-x: hidden;
 }
 
-/* --- LOADER --- */
+/* --- 2. LOADER & PROGRESS BUTTON --- */
 #loader {
-    position: fixed; inset: 0;
-    background: var(--bg-dark);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    z-index: 9999; transition: opacity 0.6s ease;
+    position: fixed; inset: 0; background: var(--bg-dark);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 9999; transition: opacity 0.6s ease, visibility 0.6s ease;
 }
-.loader-hidden { opacity: 0; visibility: hidden; }
-.spinner {
-    width: 50px; height: 50px;
-    border: 3px solid rgba(34, 211, 238, 0.1);
-    border-top: 3px solid var(--accent);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
+.loader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.spinner { width: 50px; height: 50px; border: 3px solid rgba(34, 211, 238, 0.1); border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.loader-text { margin-top: 20px; letter-spacing: 4px; font-weight: 800; color: var(--accent); }
 
-/* --- NAV --- */
+#progress-wrap {
+    position: fixed; right: 30px; bottom: 30px; height: 50px; width: 50px;
+    cursor: pointer; z-index: 1000; opacity: 0; visibility: hidden; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(15, 23, 42, 0.8); border-radius: 50%;
+}
+#progress-wrap.active-progress { opacity: 1; visibility: visible; }
+.progress-circle { position: absolute; top: 0; left: 0; }
+.progress-circle path { fill: none; stroke: var(--accent); stroke-width: 4; }
+.progress-icon { color: var(--accent); font-weight: bold; font-size: 20px; line-height: 1; margin-top: -2px; z-index: 2; }
+
+/* --- 3. NAVBAR --- */
 .navbar {
-    position: fixed; top: 0; width: 100%;
+    position: fixed; top: 0; width: 100%; padding: 20px 0;
+    background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(12px);
+    z-index: 2000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex; align-items: center;
+}
+.nav-container {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 8%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0 5%; width: 100%; max-width: 1400px; margin: 0 auto;
 }
-.logo { font-size: 1.5rem; font-weight: 800; }
-.logo span { color: var(--accent); }
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-white); font-weight: 500; transition: var(--transition); }
-.nav-links a:hover { color: var(--accent); }
+.nav-logo-combined {
+    width: 250px; height: auto; display: block;
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
+}
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a {
+    text-decoration: none; color: var(--text-white); font-weight: 500;
+    transition: var(--transition); position: relative;
+}
+.nav-links a:hover, .nav-links a:active, .nav-links a:focus { color: var(--accent); }
 
-/* --- HERO & LUMINATING TEXT --- */
-.hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 5%; }
-
+/* --- 4. HERO --- */
+.hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding-top: 140px;
+}
 .luminating-text {
-    font-size: clamp(2rem, 8vw, 3.5rem); /* Naturally scales between mobile and desktop */
-    font-weight: 800;
-    margin-bottom: 20px;
-    background-image: linear-gradient(
-        135deg,
-        #8A2BE2 0%,
-        #ffffff 25%,
-        #00BFFF 50%,
-        #ffffff 75%,
-        #8A2BE2 100%
-    );
-    background-size: 600% 600%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: liquid-glow 20s ease infinite;
-    line-height: 1.2;
+    font-size: clamp(2.2rem, 8vw, 4.5rem); font-weight: 800; margin-bottom: 20px;
+    background: linear-gradient(135deg, #22d3ee, #ffffff, #818cf8, #ffffff, #22d3ee);
+    background-size: 400% 400%; -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; animation: glow 12s ease infinite;
+}
+@keyframes glow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.hero-description {
+    color: var(--text-dim); font-size: 1.2rem; max-width: 700px;
+    margin: 0 auto 40px auto; text-align: center;
 }
 
-@keyframes liquid-glow {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-.hero p { color: var(--text-dim); margin-bottom: 30px; max-width: 600px; }
-
-/* --- BUTTONS --- */
-.btn-primary, .btn-secondary {
-    padding: 14px 30px; border-radius: 8px; text-decoration: none;
-    font-weight: 700; transition: var(--transition); display: inline-block; margin: 10px;
-}
-.btn-primary { background: var(--accent); color: var(--bg-dark); border: none; cursor: pointer; }
-.btn-secondary { border: 1px solid var(--text-dim); color: #fff; }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3); }
-
-/* --- SECTIONS --- */
-.section { padding: 80px 8%; }
+/* --- 5. SECTIONS & CARDS --- */
+.section { padding: 120px 8% 80px; }
 .alt-bg { background-color: var(--bg-alt); }
-.section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
-.container { max-width: 1100px; margin: 0 auto; }
+.section-title { font-size: 3rem; font-weight: 800; margin-bottom: 60px; text-align: center; color: white; }
 
-/* --- SERVICES GRID --- */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.portfolio-item { background: var(--bg-alt); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+
 .service-card {
-    background: rgba(255,255,255,0.03); padding: 40px; border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05); transition: var(--transition);
+    background: rgba(255,255,255,0.02); padding: 50px; border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.05); text-align: center;
 }
-.service-card:hover { border-color: var(--accent); transform: translateY(-10px); }
 .service-card h3 { color: var(--accent); margin-bottom: 15px; }
 
-/* --- PROGRESS SCROLL BUTTON --- */
-#progress-wrap {
-    position: fixed; right: 30px; bottom: 30px;
-    height: 55px; width: 55px;
-    cursor: pointer; border-radius: 50px;
-    box-shadow: inset 0 0 0 2px rgba(34, 211, 238, 0.2);
-    z-index: 10000; opacity: 0; visibility: hidden;
-    transform: translateY(15px); transition: var(--transition);
-}
-#progress-wrap.active-progress { opacity: 1; visibility: visible; transform: translateY(0); }
-.progress-circle path { fill: none; stroke: var(--accent); stroke-width: 4; transition: var(--transition); }
-.progress-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: var(--accent); }
+/* --- 6. BUTTONS --- */
+.btn-primary, .btn-secondary { padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-block; margin: 10px; }
+.btn-primary { background: var(--accent); color: var(--bg-dark); }
+.btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; }
 
-/* --- MOBILE RESPONSIVE OVERRIDES --- */
-/* --- MOBILE RESPONSIVE OVERRIDES --- */
+/* --- 7. SWIPER CUSTOM --- */
+.swiper { width: 100%; padding: 50px 0 !important; }
+.swiper-button-next, .swiper-button-prev { color: var(--accent) !important; }
+
+/* --- 8. MOBILE FIXES --- */
 @media screen and (max-width: 768px) {
-    .navbar {
-        padding: 15px 5%;
-        flex-direction: column; /* Stacks logo and links vertically */
-        gap: 10px;
-    }
-
-    .nav-links {
-        display: flex; /* Brings the links back! */
-        justify-content: center;
-        width: 100%;
-        padding: 0;
-    }
-
-    .nav-links li {
-        margin: 0 10px; /* Reduces space between links so they fit */
-    }
-
-    .nav-links a {
-        font-size: 0.9rem; /* Slightly smaller text for mobile */
-    }
-
-    /* ... keep the rest of your mobile code below ... */
+    .nav-container { flex-direction: column; gap: 15px; }
+    .nav-logo-combined { width: 180px; }
+    .nav-links { gap: 15px; font-size: 0.9rem; }
+    .section-title { font-size: 2rem; margin-bottom: 30px; }
+    .section { padding: 100px 5% 60px; }
+    .hero { padding-top: 200px !important; }
+    .luminating-text { font-size: 2rem; }
+    .hero-description { font-size: 1rem; padding: 0 15px; }
 }
