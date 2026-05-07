@@ -27,15 +27,22 @@ window.addEventListener("load", () => {
         });
     }
 
-    // Initialize Swiper
-    new Swiper(".mySwiper", {
+    // Shared Configuration for both Sliders
+    const swiperConfig = {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 20,
         loop: true,
         pagination: { el: ".swiper-pagination", clickable: true },
         navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
         breakpoints: {
-            1024: { slidesPerView: 3 }
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 } // Desktop Max: 3 Cards
         }
-    });
+    };
+
+    // Initialize Services Slider
+    new Swiper(".mySwiper", swiperConfig);
+
+    // Initialize Portfolio Slider
+    new Swiper(".portfolioSwiper", swiperConfig);
 });
