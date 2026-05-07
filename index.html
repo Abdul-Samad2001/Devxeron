@@ -3,24 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devxeron | SQA & SQL Excellence</title>
+    <title>Devxeron | SQA Learning Journey</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="loader">
-    <div class="spinner"></div>
-    <h2 class="loader-text">DEVXERON</h2>
-</div>
-
-<div id="progress-wrap">
-    <svg class="progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-    </svg>
-    <div class="progress-icon">↑</div>
-</div>
 
 <nav class="navbar">
     <div class="nav-container">
@@ -32,9 +20,9 @@
         </a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#services">Solutions</a></li>
+            <li><a href="#recruiter">Recruiters</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -42,87 +30,71 @@
 
 <header id="home" class="hero">
     <div class="hero-content">
-        <h1 class="luminating-text">Precision Engineering.<br>Bug-Free Reality.</h1>
-        <p class="hero-description">Advanced SQA, SQL Optimization, and Java Development Solutions.</p>
+        <h1 class="luminating-text">Focusing on Quality.<br>Mastering the Basics.</h1>
+        <p class="hero-description">Aspiring SQA Engineer specializing in Manual Testing and SQL. Dedicated to learning the software testing lifecycle and helping others build better projects.</p>
         <div class="hero-btns">
-            <a href="#services" class="btn-primary">Our Services</a>
-            <a href="#contact" class="btn-secondary">Let's Talk</a>
+            <a href="portfolio.html" class="btn-primary">See My Progress</a>
+            <a href="#recruiter" class="btn-secondary">View My CV</a>
         </div>
     </div>
 </header>
 
-<section id="about" class="section">
-    <div class="container text-center">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-text">I am a Software Quality Assurance Engineer and SQL Specialist focused on building robust infrastructures through <strong>Devxeron</strong>.</p>
-    </div>
-</section>
-
-<section id="portfolio" class="section">
+<section id="services" class="section alt-bg">
     <div class="container">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="swiper portfolioSwiper">
+        <h2 class="section-title">How I Can Help</h2>
+        <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="portfolio-item">
-                        <h3>Devxeron Brand</h3>
-                        <p>Automated testing pipelines and database optimization architectures.</p>
+                    <div class="service-card">
+                        <h3>Assignments & Projects</h3>
+                        <p>Need a hand with a SQL project or SQA assignment? I can help document test cases or write queries for your coursework.</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="portfolio-item">
-                        <h3>SQL Hero Project</h3>
-                        <p>Performance tuning for large-scale beginner-to-pro datasets.</p>
+                    <div class="service-card">
+                        <h3>Manual Web Testing</h3>
+                        <p>Working on a small website? I can manually test your links and layout to ensure everything works as intended.</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="portfolio-item">
-                        <h3>Java Automation</h3>
-                        <p>Robust framework development for cross-platform testing.</p>
+                    <div class="service-card">
+                        <h3>SQL Assistance</h3>
+                        <p>I can help you set up simple databases or organize your data for personal and student projects.</p>
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
 </section>
 
-<section id="services" class="section alt-bg">
-    <div class="container">
-        <h2 class="section-title">Services</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <h3>SQA Automation</h3>
-                        <p>Selenium & Java frameworks built for stability.</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <h3>SQL Optimization</h3>
-                        <p>Database tuning & high-performance architecture.</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <h3>Consulting</h3>
-                        <p>Professional quality control pipelines and strategies.</p>
-                    </div>
-                </div>
+<section id="recruiter" class="section">
+    <div class="container text-center">
+        <h2 class="section-title">For Recruiters</h2>
+        <div class="recruiter-box">
+            <p>I am actively looking for my first professional SQA role. I am a self-starter who enjoys helping others with technical tasks and is committed to mastering the software testing lifecycle.</p>
+            <div class="recruiter-actions">
+                <a href="resume.pdf" class="btn-primary" download>Download My CV</a>
+                <a href="portfolio.html" class="btn-primary" style="background: var(--text-white); color: var(--bg-dark);">View My Projects</a>
+                <a href="#contact" class="btn-secondary">Message Me</a>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section alt-bg">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>I’m Abdul Samad, a student dedicated to learning Software Quality Assurance. I created Devxeron to track my progress as I dive into the world of testing and databases.</p>
+            <p>I believe that great software starts with a solid foundation. That’s why I’m currently focusing on manual testing techniques and SQL. I’m eager to join a team where I can learn under professional guidance.</p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="section">
     <div class="container text-center">
-        <h2 class="section-title">Contact Me</h2>
+        <h2 class="section-title">Start a Conversation</h2>
         <a href="mailto:abdulsamad@devxeron.com" class="contact-link">abdulsamad@devxeron.com</a>
     </div>
 </section>

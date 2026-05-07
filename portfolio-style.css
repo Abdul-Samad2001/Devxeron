@@ -1,0 +1,115 @@
+/* --- 1. CORE VARIABLES --- */
+:root {
+    --bg-dark: #0f172a;
+    --accent: #22d3ee;
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- 2. NAVBAR (Fixed Height) --- */
+.navbar {
+    position: fixed; top: 0; width: 100%; padding: 15px 0;
+    background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(12px);
+    z-index: 2000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.nav-container {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%; max-width: 1400px; margin: 0 auto;
+}
+.logo-box { position: relative; display: flex; align-items: center; height: 80px; cursor: pointer; }
+.gear-rotate { height: 100%; width: auto; position: absolute; left: -1px; z-index: 1; animation: gear-spin 15s linear infinite; }
+.brand-text { height: 26px; width: auto; position: relative; z-index: 2; margin-left: 12px; }
+@keyframes gear-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.nav-links a { text-decoration: none; color: var(--text-white); font-weight: 600; }
+
+/* --- 3. PAGE SPACING (SOLVES OVERLAP) --- */
+.project-page {
+    padding: 160px 8% 80px; /* High padding to clear the navbar */
+}
+.section-title {
+    font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 50px;
+}
+
+/* --- 4. THE GRID --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 5. THE CARDS (POPUP & WHITE TEXT) --- */
+.portfolio-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition); /* This enables the "pop" feel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* The "Popup" effect on hover */
+.portfolio-card:hover {
+    transform: translateY(-12px) scale(1.02); /* Moves up and grows slightly */
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-card h3 {
+    color: #ffffff !important; /* Force White */
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.portfolio-card p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 20px;
+    width: fit-content;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+/* --- 6. MOBILE OVERLAP FIX --- */
+@media screen and (max-width: 768px) {
+    .project-page {
+        padding-top: 200px; /* Extra space because navbar stacks on mobile */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .portfolio-card {
+        padding: 30px;
+    }
+}
