@@ -17,7 +17,7 @@ body {
 
 /* --- 2. NAVBAR (Fixed Height) --- */
 .navbar {
-    position: fixed; top: 0; width: 100%; padding: 15px 0;
+    position: hidden; top: 0; width: 100%; padding: 15px 0;
     background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(12px);
     z-index: 2000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
