@@ -1,0 +1,23 @@
+<svg xml:space="preserve" viewBox="240.297984 341.334016 344.06399999999996 333.824" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" style="max-height: 500px" width="344.06399999999996" height="333.824">
+<desc>Created with Fabric.js 5.3.0</desc>
+<defs>
+</defs>
+<g id="background-logo" transform="matrix(1 0 0 1 640 512)">
+<rect height="1024" width="1280" ry="0" rx="0" y="-512" x="-640" paint-order="stroke" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"/>
+</g>
+<g id="logo-logo" transform="matrix(1.5551780551740244 -0.08150342826139038 0.08150342826139038 1.5551780551740244 409.46752180300206 510.52501302761857)">
+<g paint-order="stroke" style="">
+		<g transform="matrix(1.0409584010645323 0 0 1.0409584010645325 0 0)">
+<g paint-order="stroke" style="">
+		<g transform="matrix(1 0 0 1 0 0)">
+<linearGradient y2="196" x2="100" y1="0" x1="100" gradientTransform="matrix(1 0 0 1 0 0)" gradientUnits="userSpaceOnUse" id="SVGID_1924_77010">
+<stop style="stop-color:rgb(246,250,250);stop-opacity: 1" offset="29.500000000000014%"/>
+<stop style="stop-color:rgb(55,182,255);stop-opacity: 1" offset="100%"/>
+</linearGradient>
+<path stroke-linecap="round" d="M 15.78 125.3 L 16.5 149.51999999999998 L 35.769999999999996 159.89 L 50 184.51 L 81.55 184.51 L 102.91 196 L 121.53999999999999 184.51 L 150 184.51 L 165.78 157.20999999999998 L 186.42000000000002 144.48 L 185.77 122.61999999999999 L 200 98 L 184.22 70.7 L 183.5 46.480000000000004 L 164.23 36.12 L 150 11.49 L 118.45 11.49 L 97.09 0 L 78.47 11.49 L 50 11.49 L 34.22 38.78 L 13.58 51.52 L 14.23 73.37 L 0 98 Z M 198.29 98 L 185.68 119.81 L 184.32 73.81 Z M 20.37 147.13 L 19.94 132.49 L 32 153.39 Z M 50.85 183 L 38.25 161.19 L 78.81 183 Z M 102.78 191.42 L 89.87 184.48 L 114 184.48 Z M 149.15 183 L 123.93 183 L 163.12 158.82 Z M 182.41 142.29 L 169.93 150 L 182 129.11 Z M 179.63 48.83999999999999 L 180.07 63.47999999999999 L 168 42.61 Z M 149.15 13 L 161.76 34.81 L 121.19 13 Z M 97.22 4.55 L 110.13 11.49 L 86 11.49 Z M 50.85 13 L 76.07 13 L 36.88 37.15 Z M 83.58 13 L 112.88 13 L 165.51 41.3 L 180.16 66.65 L 181.93 126.34 L 167.28 151.69 L 116.43 183 L 87.12 183 L 34.49 154.7 L 19.84 129.38 L 18.07 69.69 L 32.72 44.34 Z M 30.06 46 L 18 66.88 L 17.61 53.67999999999999 Z M 14.32 76.18 L 15.68 122.18 L 1.71 98 Z" transform="translate(-100, -98)" paint-order="stroke" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_1924_77010); fill-rule: nonzero; opacity: 1;"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

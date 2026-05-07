@@ -55,6 +55,51 @@ body {
     width: 250px; height: auto; display: block;
     filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
 }
+/* --- LOGO GEAR SYSTEM --- */
+.logo-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 91px; /* Adjust based on your nav height */
+    width: auto;
+    cursor: pointer;
+}
+
+.gear-rotate {
+     height: 100%;
+     width: auto;
+     position: absolute;
+     left: -2px;
+     z-index: 1;
+
+     /* ANIMATIONS: Spin + Pulsing Color Shift */
+animation: gear-spin 15s linear infinite, color-shift-engine 8s ease-in-out infinite;
+ }
+.brand-text {
+    height: 32px; /* Slightly smaller than the gear */
+    width: auto;
+    position: relative;
+    z-index: 2; /* Sits on top of the gear */
+    margin-left: 10px; /* Tweak this so "Dev" sits perfectly inside the gear */
+    pointer-events: none; /* Clicks go through to the link */
+}
+
+
+/* THE GEAR ANIMATION */
+@keyframes gear-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Speed up on hover for a "System Active" feel */
+.logo-box:hover .gear-rotate {
+    animation-duration: 4s;
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.8));
+}
 .nav-links { display: flex; list-style: none; gap: 30px; }
 .nav-links a {
     text-decoration: none; color: var(--text-white); font-weight: 500;
