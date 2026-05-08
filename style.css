@@ -133,28 +133,39 @@ body {
     .nav-container { flex-direction: column; gap: 12px; }
     .section { padding: 60px 5%; }
     .hero { padding-top: 150px; }
-    /* --- MOBILE BUTTON FIX --- */
-    @media screen and (max-width: 768px) {
-        /* 1. Force the container to stack and center */
-        .hero-btns, .recruiter-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px; /* Creates the gap between them */
-            width: 100%;
-            padding: 0 80px;
-        }
+   /* --- MOBILE BUTTON FIX --- */
+   @media screen and (max-width: 768px) {
+       /* 1. Force the container to stack and center */
+       .hero-btns, .recruiter-actions {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap: 15px; /* Creates the gap between them */
+           width: 100%;
+           padding: 0 20px;
+       }
 
-        /* 2. Force all buttons to be the exact same width */
-        .btn-primary, .btn-secondary, .btn-white {
-            width: 100%;           /* Fills the container width */
-            max-width: 300px;      /* Keeps them from getting too wide on tablets */
-            text-align: center;    /* Centers the text */
-            padding: 12px 0;       /* Consistent height */
-            display: block;        /* Ensures they respect width */
-            margin: 0 auto;        /* Extra insurance for centering */
-        }
+       /* 2. Force all buttons to be the exact same width */
+       .btn-primary, .btn-secondary, .btn-white {
+           width: 100%;           /* Fills the container width */
+           max-width: 300px;      /* Keeps them from getting too wide on tablets */
+           text-align: center;    /* Centers the text */
+           padding: 12px 0;       /* Consistent height */
+           display: block;        /* Ensures they respect width */
+           margin: 0 auto;        /* Extra insurance for centering */
+       }
 
+       /* 3. Adjust hero text for mobile so it doesn't push buttons off screen */
+       .luminating-text {
+           font-size: 2.2rem;
+           margin-bottom: 15px;
+       }
+
+       .hero-description {
+           font-size: 0.95rem;
+           margin-bottom: 25px;
+       }
+   }
         /* 3. Adjust hero text for mobile so it doesn't push buttons off screen */
         .luminating-text {
             font-size: 2.2rem;
