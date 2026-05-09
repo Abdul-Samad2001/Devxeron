@@ -28,9 +28,36 @@ body {
 .logo-box { position: relative; display: flex; align-items: center; height: 80px; cursor: pointer; }
 .gear-rotate { height: 100%; width: auto; position: absolute; left: -1px; z-index: 1; animation: gear-spin 15s linear infinite; }
 .brand-text { height: 26px; width: auto; position: relative; z-index: 2; margin-left: 12px; }
-@keyframes gear-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.nav-links a { text-decoration: none; color: var(--text-white); font-weight: 600; }
 
+@keyframes gear-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* --- 2. NAVBAR REPAIR --- */
+
+/* 1. Target the list container */
+.nav-links {
+    display: flex;
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Target the list item (This kills the ::marker) */
+.nav-links li {
+    list-style: none !important;
+    list-style-type: none !important;
+    display: block; /* Changing from list-item to block kills the marker bubble */
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Your existing link styles */
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 600;
+    display: inline-block;
+}
 /* --- 3. PAGE SPACING (SOLVES OVERLAP) --- */
 .project-page {
     padding: 150px 8% 80px; /* High padding to clear the navbar */
@@ -95,21 +122,57 @@ body {
     border: 1px solid rgba(34, 211, 238, 0.2);
 }
 
-/* --- 6. MOBILE OVERLAP FIX --- */
+/* --- 6. MOBILE REFINEMENT --- */
 @media screen and (max-width: 768px) {
+    /* Navbar height and alignment */
+    .navbar { padding: 5px 0; }
+
+    .nav-container {
+        flex-direction: row !important; /* Prevents stacking */
+        justify-content: space-between !important;
+        padding: 10px 20px;
+    }
+
+     /* 1. This controls the height of the logo and the navbar area */
+            .logo-box {
+                height: 75px; /* Reduced from 80px to make the bar thinner */
+            }
+
+            /* 2. This controls the actual text/image inside the logo box */
+            .brand-text {
+                height: 25px; /* Keeps the logo proportional to the new smaller bar */
+                margin-left: 10px;
+        /* This ensures it stays vertically centered with the gear */
+                display: block;
+            }
+
+            /* 3. This reduces the padding around the navbar */
+            .navbar {
+                padding: 5px 0;
+            }/* Forces logo to show */
+
+    /* Back Button Styling */
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Page Spacing */
     .project-page {
-        padding-top: 180px; /* Extra space because navbar stacks on mobile */
+        padding-top: 120px; /* Reduced since navbar is no longer stacking */
         padding-left: 20px;
         padding-right: 20px;
     }
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-    }
+
     .section-title {
         font-size: 1.8rem;
+        margin-bottom: 30px;
     }
-    .portfolio-card {
-        padding: 30px;
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
     }
 }

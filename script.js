@@ -27,22 +27,58 @@ window.addEventListener("load", () => {
         });
     }
 
-    // Shared Configuration for both Sliders
-    const swiperConfig = {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+   const swiperConfig = {
+           slidesPerView: "auto",
+           centeredSlides: true,
+           spaceBetween: 20,
+           loop: true,
+           grabCursor: true,
+
+           autoplay: {
+               delay: 4000,
+               disableOnInteraction: false,
+               pauseOnMouseEnter: true, // Stops autoplay when mouse hovers (Desktop)
+           },
+        // -----------------------------------
+
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
         breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 } // Desktop Max: 3 Cards
+            768: {
+                slidesPerView: 2,
+                centeredSlides: false
+            },
+            1024: {
+                slidesPerView: 3,
+                centeredSlides: false
+            }
         }
     };
 
-    // Initialize Services Slider
+    // Initialize Sliders
     new Swiper(".mySwiper", swiperConfig);
-
-    // Initialize Portfolio Slider
     new Swiper(".portfolioSwiper", swiperConfig);
+
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    if (menuBtn && navList) {
+        menuBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    }
 });
