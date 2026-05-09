@@ -113,21 +113,29 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     z-index: 100; /* Ensures hovered card stays on top */
 }
-
-/* SWIPER FIXES */
 .mySwiper {
+    width: 100%;
     overflow: visible !important;
-    padding-top: 30px; /* Room for the hover pop */
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 60px;
 }
 
 .swiper-slide {
-    overflow: visible !important;
+    /* REMOVED width: 85% !important; */
     display: flex;
     justify-content: center;
-    transition: var(--transition);
+    transition: transform 0.3s ease;
+    /* This ensures the slide container doesn't shrink the card */
+    width: 100%;
 }
-
+/* UPDATE YOUR .container BLOCK */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: hidden; /* This prevents the 'pinch-out' drift */
+}
 /* Remove or Comment Out the .swiper-slide-active block entirely */
 /* .swiper-slide-active .service-card { ... delete this ... } */
 
@@ -221,7 +229,7 @@ section {
     .bar {
         width: 25px;
         height: 3px;
-        background-color: var(--accent);
+        background-color: white;
         border-radius: 2px;
     }
 
