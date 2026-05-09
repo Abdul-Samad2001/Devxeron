@@ -14,22 +14,32 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-container">
-
-        <a href="#home" class="logo-wrapper">
+        <!-- Logo Wrapper (Left Side) -->
+        <a href="index.html" class="logo-wrapper">
             <div class="logo-box">
+                <!-- Spinning Hexagon -->
                 <img src="Images/Hexagon_Shape-cropped.svg" alt="" class="gear-rotate">
+                <!-- Text Logo -->
                 <img src="Images/Devxeron_Logo-cropped.svg" alt="Devxeron" class="brand-text">
             </div>
         </a>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+        <!-- Hamburger Menu Toggle (Right Side) -->
+        <!-- This replaces the horizontal text menu on mobile -->
+        <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Navigation Links (The Dropdown) -->
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Home</a></li>
             <li><a href="#services">Solutions</a></li>
-            <li><a href="#recruiter">Recruiters</a></li>
+            <li><a href="#recruiters">Recruiters</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
     </div>
 </nav>
 
@@ -73,19 +83,6 @@
         <div class="swiper mySwiper">
 
             <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <h3>Assignments & Projects</h3>
-
-                        <p>
-                            Need a hand with a SQL project or SQA assignment?
-                            I can help document test cases or write queries
-                            for your coursework.
-                        </p>
-                    </div>
-                </div>
-
                 <div class="swiper-slide">
                     <div class="service-card">
                         <h3>Manual Web Testing</h3>
@@ -109,6 +106,20 @@
                     </div>
                 </div>
 
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <h3>Assignments & Projects</h3>
+
+                        <p>
+                            Need a hand with a SQL project or SQA assignment?
+                            I can help document test cases or write queries
+                            for your coursework.
+                        </p>
+                    </div>
+                </div>
+
+
+
             </div>
 
             <div class="swiper-pagination"></div>
@@ -120,7 +131,7 @@
 </section>
 
 <!-- RECRUITER -->
-<section id="recruiter" class="section">
+<section id="recruiters" class="section">
 
     <div class="container text-center">
 

@@ -69,7 +69,9 @@ body {
 }
 @keyframes glow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 .hero-description { color: var(--text-dim); font-size: 1.1rem; max-width: 650px; margin: 0 auto 40px; padding: 0 20px; }
-
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+}
 /* --- SECTIONS --- */
 .section { padding: 100px 8%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
 .alt-bg { background-color: var(--bg-alt); }
@@ -81,7 +83,59 @@ body {
     padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;
 }
-.service-card h3 { color: var(--accent); margin-bottom: 12px; }
+.service-card h3 { color: white; margin-bottom: 12px; }
+/* --- THE HOVER EFFECT FOR HELP CARDS --- */
+.service-card {
+    /* Add this line to your existing .service-card to make the movement smooth */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.service-card:hover {
+    /* The "Projects" Swipe-Up & Scale */
+    transform: translateY(-12px) scale(1.02);
+
+    /* Brightens the background and accentuates the border */
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--accent);
+
+    /* Adds the depth shadow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+/* --- SWIPER CLIPPING FIX --- */
+
+/* 1. Allow the cards to "pop up" without being cut off at the top */
+.mySwiper {
+    overflow: visible !important;
+    padding-top: 20px; /* Gives room for the translateY(-12px) movement */
+    padding-bottom: 40px; /* Gives room for the shadow below */
+}
+
+/* 2. Ensure the individual slides don't clip their own children */
+.swiper-slide {
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* 3. Force the card to stay on top when hovered */
+.service-card:hover {
+    z-index: 100;
+    position: relative;
+}
+/* This targets the card inside the currently active swiper slide */
+.swiper-slide-active .service-card {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure a smooth transition when the "active" class shifts */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
 /* RECRUITER BOX */
 .recruiter-box {
@@ -127,54 +181,88 @@ body {
 /* ABOUT & CONTACT */
 .about-content { max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-dim); }
 .contact-link { color: var(--accent); text-decoration: none; font-size: 1.3rem; font-weight: 700; }
-
-/* MOBILE */
+/* --- GLOBAL SCROLL FIX --- */
+/* This prevents the navbar from covering your headings when you click a link */
+section {
+    scroll-margin-top: 80px;
+}
 @media screen and (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 12px; }
-    .section { padding: 60px 5%; }
-    .hero { padding-top: 150px; }
-   /* --- MOBILE BUTTON FIX --- */
-   @media screen and (max-width: 768px) {
-       /* 1. Force the container to stack and center */
-       .hero-btns, .recruiter-actions {
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           gap: 15px; /* Creates the gap between them */
-           width: 100%;
-           padding: 0 20px;
-       }
-
-       /* 2. Force all buttons to be the exact same width */
-       .btn-primary, .btn-secondary, .btn-white {
-           width: 100%;           /* Fills the container width */
-           max-width: 300px;      /* Keeps them from getting too wide on tablets */
-           text-align: center;    /* Centers the text */
-           padding: 12px 0;       /* Consistent height */
-           display: block;        /* Ensures they respect width */
-           margin: 0 auto;        /* Extra insurance for centering */
-       }
-
-       /* 3. Adjust hero text for mobile so it doesn't push buttons off screen */
-       .luminating-text {
-           font-size: 2.2rem;
-           margin-bottom: 15px;
-       }
-
-       .hero-description {
-           font-size: 0.95rem;
-           margin-bottom: 25px;
-       }
-   }
-        /* 3. Adjust hero text for mobile so it doesn't push buttons off screen */
-        .luminating-text {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .hero-description {
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
+    /* Ensure container stays side-by-side */
+    .nav-container {
+        display: flex;
+        justify-content: space-between; /* Logo left, Button right */
+        align-items: center;
+        width: 100%;
+        padding: 10px 20px;
+        position: relative;
     }
+      /* 1. This controls the height of the logo and the navbar area */
+             .logo-box {
+                 height: 75px; /* Reduced from 80px to make the bar thinner */
+             }
+
+             /* 2. This controls the actual text/image inside the logo box */
+             .brand-text {
+                 height: 25px; /* Keeps the logo proportional to the new smaller bar */
+                 margin-left: 10px;
+         /* This ensures it stays vertically centered with the gear */
+                 display: block;
+             }
+
+             /* 3. This reduces the padding around the navbar */
+             .navbar {
+                 padding: 5px 0;
+             }/* Forces logo to show */
+
+    /* The 3-Bar (Hamburger) Styling */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--accent);
+        border-radius: 2px;
+    }
+
+    /* The Floating Dropdown Menu */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;       /* Sits just below navbar */
+        right: 20px;     /* Aligned to the right side */
+        width: auto;     /* Takes only enough space for text */
+        min-width: 160px;
+        background: rgba(15, 23, 42, 0.95); /* Semi-transparent dark */
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    .nav-links.active { display: flex; }
+
+    /* Buttons inside the dropdown with Raise Effect */
+    .nav-links a {
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: transform 0.2s ease;
+        text-align: right; /* Align text with the button */
+    }
+
+    .nav-links a:hover {
+        transform: translateY(-3px); /* The raise effect you wanted */
+        color: var(--accent);
+    }
+
 }
