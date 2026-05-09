@@ -85,56 +85,51 @@ body {
 }
 .service-card h3 { color: white; margin-bottom: 12px; }
 /* --- THE HOVER EFFECT FOR HELP CARDS --- */
+/* --- UPDATED CARD LOGIC --- */
+
+/* Base State for all cards */
 .service-card {
-    /* Add this line to your existing .service-card to make the movement smooth */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
+    position: relative;
+    z-index: 1;
 }
 
+/* Hover effect ONLY (Fixes the "stuck" first card) */
 .service-card:hover {
-    /* The "Projects" Swipe-Up & Scale */
     transform: translateY(-12px) scale(1.02);
-
-    /* Brightens the background and accentuates the border */
     background: rgba(255, 255, 255, 0.07);
     border-color: var(--accent);
-
-    /* Adds the depth shadow */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 100; /* Ensures hovered card stays on top */
 }
-/* --- SWIPER CLIPPING FIX --- */
 
-/* 1. Allow the cards to "pop up" without being cut off at the top */
+/* SWIPER FIXES */
 .mySwiper {
     overflow: visible !important;
-    padding-top: 20px; /* Gives room for the translateY(-12px) movement */
-    padding-bottom: 40px; /* Gives room for the shadow below */
+    padding-top: 30px; /* Room for the hover pop */
+    padding-bottom: 50px;
 }
 
-/* 2. Ensure the individual slides don't clip their own children */
 .swiper-slide {
     overflow: visible !important;
     display: flex;
     justify-content: center;
+    transition: var(--transition);
 }
 
-/* 3. Force the card to stay on top when hovered */
-.service-card:hover {
-    z-index: 100;
-    position: relative;
-}
-/* This targets the card inside the currently active swiper slide */
-.swiper-slide-active .service-card {
-    transform: translateY(-12px) scale(1.02);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Ensure a smooth transition when the "active" class shifts */
-.service-card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Remove or Comment Out the .swiper-slide-active block entirely */
+/* .swiper-slide-active .service-card { ... delete this ... } */
 
 
 /* RECRUITER BOX */

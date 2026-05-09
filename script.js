@@ -27,20 +27,14 @@ window.addEventListener("load", () => {
         });
     }
 
-   const swiperConfig = {
-           slidesPerView: "auto",
-           centeredSlides: true,
-           spaceBetween: 20,
-           loop: true,
-           grabCursor: true,
-
-           autoplay: {
-               delay: 4000,
-               disableOnInteraction: false,
-               pauseOnMouseEnter: true, // Stops autoplay when mouse hovers (Desktop)
-           },
-        // -----------------------------------
-
+    // CLEAN SLIDER CONFIG (No Autoplay)
+    const swiperConfig = {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        spaceBetween: 20,
+        loop: true,
+        grabCursor: true,
+        watchSlidesProgress: true, // Helps with smooth rendering
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -62,7 +56,6 @@ window.addEventListener("load", () => {
         }
     };
 
-    // Initialize Sliders
     new Swiper(".mySwiper", swiperConfig);
     new Swiper(".portfolioSwiper", swiperConfig);
 
