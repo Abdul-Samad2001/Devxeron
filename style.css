@@ -1,4 +1,5 @@
-/* --- CORE & VARIABLES --- */
+/* --- Core and Variables--- */
+
 :root {
     --bg-dark: #0f172a;
     --bg-alt: #1e293b;
@@ -7,7 +8,6 @@
     --text-dim: #94a3b8;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -18,7 +18,9 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
-/* --- LOADER & PROGRESS BUTTON --- */
+
+/* --- Loader and Progress button --- */
+
 #loader {
     position: fixed; inset: 0; background: var(--bg-dark);
     display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -39,7 +41,7 @@ body {
 .progress-circle path { fill: none; stroke: var(--accent); stroke-width: 4; }
 .progress-icon { color: var(--accent); font-weight: bold; font-size: 22px; z-index: 2; line-height: 1; transform: translateY(-2px); }
 
-/* --- NAVBAR --- */
+/* --- NavBar --- */
 
 .navbar {
     position: fixed; top: 0; width: 100%; padding: 10px 0;
@@ -59,7 +61,8 @@ body {
 .nav-links a { text-decoration: none; color: var(--text-white); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
 .nav-links a:hover { color: var(--accent); }
 
-/* --- HERO --- */
+/* --- Hero --- */
+
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 100px; }
 .luminating-text {
     font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 800; margin-bottom: 20px;
@@ -72,22 +75,23 @@ body {
 .menu-toggle {
     display: none; /* Hidden by default on desktop */
 }
-/* --- SECTIONS --- */
+/* --- Sections --- */
+
 .section { padding: 50px 8%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
 .alt-bg { background-color: var(--bg-alt); }
 .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 30px; text-align: center; color: white; }
 
-/* HELP CARDS */
+/* Services Cards  */
+
 .service-card {
     background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px);
     padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;
 }
 .service-card h3 { color: white; margin-bottom: 12px; }
-/* --- THE HOVER EFFECT FOR HELP CARDS --- */
-/* --- UPDATED CARD LOGIC --- */
 
 /* Base State for all cards */
+
 .service-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
@@ -105,10 +109,8 @@ body {
     z-index: 1;
 }
 
-/* --- COMBINED POPUP LOGIC --- */
+/* --- The hover effect for services cards --- */
 
-/* 1. This applies the effect when HOVERED (Desktop) */
-/* 2. AND when it is the ACTIVE slide (Mobile Autoplay) */
 .service-card:hover,
 .swiper-slide-active .service-card {
     transform: translateY(-15px) scale(1.03);
@@ -118,10 +120,10 @@ body {
     z-index: 100;
 }
 
-/* --- DESKTOP CLEANUP --- */
-/* On desktop, we usually don't want the "Active" card to pop up
+/* --- Adjustments and fixes in Desktop version --- */
+/* On desktop, we usually don't want the Active card to pop up
    automatically because there are 3 cards visible at once.
-   This media query turns OFF the auto-pop for desktop, leaving ONLY the hover. */
+   This media query turns OFF the auto-pop for desktop, leaving only the hover effect. */
 
 @media screen and (min-width: 1024px) {
     .swiper-slide-active .service-card {
@@ -131,13 +133,16 @@ body {
         box-shadow: none;
     }
 
-    /* Re-enable hover specifically for desktop */
+/* Re enable hover specifically for desktop */
+
     .service-card:hover {
         transform: translateY(-15px) scale(1.03) !important;
         border-color: var(--accent) !important;
         background: rgba(255, 255, 255, 0.08) !important;
     }
 }
+/* --- Swiping in mobile version logic --- */
+
 .mySwiper {
     width: 100%;
     overflow: visible !important;
@@ -146,15 +151,14 @@ body {
 }
 
 .swiper-slide {
-    /* REMOVED width: 85% !important; */
     display: flex;
     justify-content: center;
-    transition: transform 0.3s ease;
-    /* This ensures the slide container doesn't shrink the card */
+    transition: transform 0.3s ease; /* This ensures the slide container doesn't shrink the card */
+
     width: 100%;
 
 }
-/* UPDATE YOUR .container BLOCK */
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -162,20 +166,20 @@ body {
     padding: 0 20px;
     overflow: hidden; /* This prevents the 'pinch-out' drift */
 }
-/* Remove or Comment Out the .swiper-slide-active block entirely */
-/* .swiper-slide-active .service-card { ... delete this ... } */
 
+/* Recruiter Box */
 
-/* RECRUITER BOX */
 .recruiter-box {
     background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(34, 211, 238, 0.2);
     padding: 40px; border-radius: 24px; max-width: 850px; margin: 0 auto;
 }
 .recruiter-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
-/* Specific style for the White Project Button */
+
+/*  style for the recruiter action buttons */
+
 .btn-white {
     background: #ffffff;
-    color: #0f172a; /* Dark text to contrast with white background */
+    color: #0f172a;
     padding: 14px 28px;
     border-radius: 10px;
     text-decoration: none;
@@ -185,39 +189,37 @@ body {
     border: 1px solid #ffffff;
 }
 
-/* --- BUTTON HOVER EFFECTS (NO SHADOWS) --- */
+/* Button Hover Effects and Raising logic  */
 
-/* Targets all three button types */
 .btn-primary, .btn-secondary, .btn-white {
     display: inline-block;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* The Raising effect only */
 .btn-primary:hover, .btn-secondary:hover, .btn-white:hover {
-    transform: translateY(-6px); /* Moves the button up */
+    transform: translateY(-6px);
 }
-/* Specific shadow for the Transparent/Border button */
 .btn-secondary:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     background: rgba(255, 255, 255, 0.05); /* Slight highlight on hover */
 }
-/* BUTTONS */
+
+/* --- Buttons = --- */
+
 .btn-primary, .btn-secondary { padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: var(--transition); display: inline-block; }
 .btn-primary { background: var(--accent); color: var(--bg-dark); border: 1px solid var(--accent); }
 .btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; }
 
-/* ABOUT & CONTACT */
+/* --- About and Contacts --- */
 .about-content { max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-dim); }
 .contact-link { color: var(--accent); text-decoration: none; font-size: 1.3rem; font-weight: 700; }
-/* --- GLOBAL SCROLL FIX --- */
-/* This prevents the navbar from covering your headings when you click a link */
+
+/* Global Scroll Issue Fix  */
+
 section {
     scroll-margin-top: 80px;
 }
 @media screen and (max-width: 768px) {
-    /* Ensure container stays side-by-side */
-    .nav-container {
+     .nav-container {
         display: flex;
         justify-content: space-between; /* Logo left, Button right */
         align-items: center;
@@ -225,25 +227,21 @@ section {
         padding: 10px 20px;
         position: relative;
     }
-      /* 1. This controls the height of the logo and the navbar area */
-             .logo-box {
-                 height: 75px; /* Reduced from 80px to make the bar thinner */
-             }
+/*  Logo Logic */
+    .logo-box {
+         height: 75px;
+         }
+    .brand-text {
+         height: 25px;
+         margin-left: 10px;
+         display: block;
+         }
+         .navbar {
+         padding: 5px 0;
+         }
 
-             /* 2. This controls the actual text/image inside the logo box */
-             .brand-text {
-                 height: 25px; /* Keeps the logo proportional to the new smaller bar */
-                 margin-left: 10px;
-         /* This ensures it stays vertically centered with the gear */
-                 display: block;
-             }
+/* The 3 bar (Hamburger) Styling */
 
-             /* 3. This reduces the padding around the navbar */
-             .navbar {
-                 padding: 5px 0;
-             }/* Forces logo to show */
-
-    /* The 3-Bar (Hamburger) Styling */
     .menu-toggle {
         display: flex;
         flex-direction: column;
@@ -259,15 +257,15 @@ section {
         border-radius: 2px;
     }
 
-    /* The Floating Dropdown Menu */
+/* --- The Floating Dropdown Menu --- */
     .nav-links {
         display: none;
         position: absolute;
-        top: 60px;       /* Sits just below navbar */
-        right: 20px;     /* Aligned to the right side */
-        width: auto;     /* Takes only enough space for text */
+        top: 60px;
+        right: 20px;
+        width: auto;
         min-width: 160px;
-        background: rgba(15, 23, 42, 0.95); /* Semi-transparent dark */
+        background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 15px;
@@ -276,21 +274,21 @@ section {
         box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         z-index: 1000;
     }
-
     .nav-links.active { display: flex; }
 
-    /* Buttons inside the dropdown with Raise Effect */
+/* Buttons inside the dropdown with Raise Effect */
+
     .nav-links a {
         padding: 12px 20px;
         color: white;
         text-decoration: none;
         font-size: 0.9rem;
         transition: transform 0.2s ease;
-        text-align: right; /* Align text with the button */
+        text-align: right;
     }
 
     .nav-links a:hover {
-        transform: translateY(-3px); /* The raise effect you wanted */
+        transform: translateY(-3px);
         color: var(--accent);
     }
 
