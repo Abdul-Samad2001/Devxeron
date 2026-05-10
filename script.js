@@ -27,38 +27,40 @@ window.addEventListener("load", () => {
         });
     }
 
-    // CLEAN SLIDER CONFIG (No Autoplay)
-    const swiperConfig = {
-        slidesPerView: "auto",
-        centeredSlides: true,
-        spaceBetween: 20,
-        loop: true,
-        grabCursor: true,
-        watchSlidesProgress: true, // Helps with smooth rendering
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            dynamicBullets: true
+// Inside your window.addEventListener("load", ...)
+const swiperConfig = {
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 20,
+    loop: true,
+    grabCursor: true,
+
+    // --- AUTOPLAY RE-ADDED ---
+    autoplay: {
+        delay: 3500, // 3.5 seconds per slide
+        disableOnInteraction: false, // Restarts after user swipes
+        pauseOnMouseEnter: true, // Stops when mouse is over it (Desktop)
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: "auto",
+            centeredSlides: true
         },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                centeredSlides: false
-            },
-            1024: {
-                slidesPerView: 3,
-                centeredSlides: false
-            }
+        1024: {
+            slidesPerView: 3,
+            centeredSlides: false
         }
-    };
+    }
+};
 
-    new Swiper(".mySwiper", swiperConfig);
-    new Swiper(".portfolioSwiper", swiperConfig);
-
+// Re-initialize
+const mySwiper = new Swiper(".mySwiper", swiperConfig);
     // Mobile Menu Logic
     const menuBtn = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
