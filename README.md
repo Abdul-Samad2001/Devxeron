@@ -6,7 +6,7 @@ This is my personal portfolio website. I built it to host my resume and showcase
 https://abdul-samad2001.github.io/Devxeron/
 
 ## Current Status
-The site is live with my professional contact info and resume. I am currently working on my SQL and SQA projects and will be adding them to the "Projects" section shortly.
+The site is live with my professional contact info and resume. I am currently working on my SQL and SQA projects and will be adding them to the "Projects" section shortly.Right now, there is placeholder content in that section.
 
 ## The Tech Stack
 - **Languages:** HTML5, CSS3, JavaScript
