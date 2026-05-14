@@ -17,11 +17,5 @@ The site is live with my professional contact info and resume. I am currently wo
 - **Navigation:** Added a "Go to Top" progress button and smooth scrolling for a better user experience.
 - **Professional Branding:** Integrated my custom "Devxeron" logo and updated my contact info to a professional work email.
 
-## Quality Assurance (Manual Testing)
-Since I am pursuing SQA, I treated this project as a test case:
-- Verified all links (GitHub, LinkedIn, Email) are functional.
-- Tested cross-browser compatibility (Chrome, Edge, Firefox).
-- Confirmed responsive breakpoints for various screen sizes.
-
 ## Contact
 - **Email:** abdulsamadwork1234@gmail.com
