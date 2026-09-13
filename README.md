@@ -18,4 +18,4 @@ The site is live with my professional contact info and resume. I am currently wo
 - **Professional Branding:** Integrated my custom "Devxeron" logo and updated my contact info to a professional work email.
 
 ## Contact
-- **Email:** abdulsamadwork1234@gmail.com
+- **Email:** Abdulsamad12419958bolt@gmail.com
